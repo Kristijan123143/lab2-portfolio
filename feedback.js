@@ -176,7 +176,7 @@ form.addEventListener("submit", (event) => {
     const submittedName = fullName.value.trim();
     resetForm();
     statusMessage.textContent = `Thank you for your feedback, ${submittedName}!`;
-    successTimer = setTimeout(clearSuccessMessage, 5000);
+    successTimer = setTimeout(clearSuccessMessage, 4000);
 });
 
 updateCounter(); // Initialize counter on page load

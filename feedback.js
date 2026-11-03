@@ -7,14 +7,22 @@ const website = document.getElementById('website');
 
 const nameError = document.getElementById('name-error');
 const emailError = document.getElementById('email-error');
-const tpoicError = document.getElementById('topic-error');
+const topicError = document.getElementById('topic-error');
 const commentsError = document.getElementById('comments-error');
 const websiteError = document.getElementById('website-error');
-const couunter = document.getElementById('comments-counter');
+const counter = document.getElementById('comments-counter');
 const statusMessage = document.getElementById('feedback-status');
 
-const minimumComents = 15;
+const minimumComments = 15;
 let successTimer = null;
+
+const fields = [
+    { input: fullName, error: nameError, validate: validateFullName },
+    { input: email, error: emailError, validate: validateEmail },
+    { input: topic, error: topicError, validate: validateTopic },
+    { input: comments, error: commentsError, validate: validateComments },
+    { input: website, error: websiteError, validate: validateWebsite }
+];
 
 function validateFullName(value)
 {
@@ -54,7 +62,7 @@ function validateTopic(value)
   return value === "" ? "Choose a topic of interest." : "";
 }
 
-function commentLenght(value)
+function commentLength(value)
 {
     return [...value.trim()].length;
 }
@@ -70,6 +78,62 @@ function validateWebsite(value)
     {
         return "Enter a complete URL, for example https://example.com.";
     }
-    
+
     return "";
 }
+
+function showFieldError(field, message)
+{
+    field.error.textContent = message;
+    field.input.classList.remove("is-valid");
+    field.input.classList.add("is-invalid");
+    field.input.setAttribute("aria-invalid", "true");
+}
+
+function clearFieldError(field)
+{
+    field.error.textContent = "";
+    field.input.classList.remove("is-invalid", "is-valid");
+    field.input.removeAttribute("aria-invalid");
+}
+
+function validateField(field)
+{
+    const message = field.validate(field.input.value);
+    if(message !== "")
+    {
+        showFieldError(field, message);
+        return false;
+    }
+
+    clearFieldError(field);
+
+    if(field.input.value.trim() !== "")
+    {
+        field.input.classList.add("is-valid");
+    }
+
+    return true;
+}
+
+
+function updateCounter()
+{
+    const count = commentLength(comments.value);
+    const enough = count >= minimumComments;
+
+    counter.textContent = enough
+    ? `${count} characters – the minimum of ${minimumComments} is met.`
+    : `${count} characters – at least ${minimumComments} required.`;
+
+    counter.classList.toggle("too-short", !enough);
+    counter.classList.toggle("long-enough", enough);
+}
+
+fields.forEach((field) => {
+    field.input.addEventListener("input", () => validateField(field));
+});
+
+comments.addEventListener("input", updateCounter);
+updateCounter(); // Initialize counter on page load
+

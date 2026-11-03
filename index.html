@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kristijan Duspara Portfolio</title>
+</head>
+<body>
+    <header>
+        <h1>My personal portfolio</h1>
+
+        <nav>
+            <a href="#about">About me</a>
+            <a href="#interests">Interests</a>
+            <a href="#skills">Skills</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About me</h2>
+            <p>
+                Hi, my name is Kristijan Duspara and I'm a master student at Örebro University
+                studying information security. I'm originally from Stockholm, but I moved to
+                Örebro to study.
+            </p>
+
+            <p>
+                One childhood memory that has stayed with me is using a computer at home and
+                being curious about how websites and games worked. I did not understand the
+                code behind them at the time, but I liked the feeling of exploring something
+                interactive and creative.
+            </p>
+
+            <p>
+                My interest in web development grew during this course, when we started working
+                with HTML and CSS. Seeing how structure and styling can turn simple text into
+                a real website made me want to improve my own web development skills.
+            </p>
+
+            <p>
+                My interests include working out, playing football with friends, and spending
+                time with family and friends. At the end of this course, I hope to have a
+                better understanding of web development and be able to create more complex
+                websites.
+            </p>
+        </section>
+
+        <section id="interests">
+            <h2>Interests</h2>
+            <p>
+                My interests include working out, playing football with friends and to be with family and friends. I also enjoy learning new things and to challenge myself. 
+                I have a strong interest in technology and how it can be used to improve our lives. I also have a strong interest in information security and how to protect our data and privacy.
+            </p>
+            
+            <ul>
+                <li>Working out helps me stay focused and disciplined.</li>
+                <li>Football gives me teamwork, communication and competition.</li>
+                <li>Information security connects to my studies and interest in privacy.</li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Current level</th>
+                        <th>How I use it</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>In the middle of beginner and intermediate</td>
+                            <td>I use semantic elements to structure the portfolio clearly.</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Intermediate</td>
+                            <td>I use CSS to style the layout, navigation and responsive design.</td>
+                        </tr>
+                        <tr>
+                            <td>Information security</td>
+                            <td>Student level</td>
+                            <td>I think about privacy, image metadata and safe handling of personal information.</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-row">
+                <figure>
+                    <img src="images/img1.png" alt="Clear blue sea near a harbor">
+                </figure>
+
+                <figure>
+                    <img src="images/img2.png" alt="Bosnian flag outside on a sunny day">
+                </figure>
+
+                <figure>
+                    <img src="images/img3.png" alt="Concert crowd with stage lights">
+                </figure>
+            </div>
+            
+        </section>
+
+        <section id="contact">
+           <h2>Contact</h2>
+           <p>
+                If you want to contact me, you can use the form below.
+           </p>
+
+           <form action="mailto:kristijan@gmail.com" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact: kristijan@gmail.com</p>
+        <p>&copy; 2026 Kristijan Duspara. All rights reserved.</p>
+        <p>Privacy Policy | Terms of Service</p>
+        <a href="https://www.oru.se/" target="_blank" rel="noopener">Örebro University</a>
+    </footer>
+</body>
+</html>

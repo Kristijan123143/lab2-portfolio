@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Kristijan Duspara Portfolio</title>
+    <script src="feedback.js" defer></script>
 </head>
 <body>
     <header>
@@ -113,23 +114,55 @@
         </section>
 
         <section id="contact">
-           <h2>Contact</h2>
-           <p>
-                If you want to contact me, you can use the form below.
-           </p>
+           <h2>Feedback</h2>
+           <p>All fields except Website are required.</p>
+           <p>This is a browser demo. Nothing is sent or saved.</p>
 
-           <form action="mailto:kristijan@gmail.com" method="post" enctype="text/plain">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+           <form id="feedback-form" novalidate>
+                <div class="form-field">
+                    <label for="full-name">Full Name</label>
+                    <input id="full-name" name="fullName" type="text" autocomplete="name" required minlength="2" aria-describedby="name-error">
+                    <p id="name-error" class="field-error"></p>
+                </div>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                    <p id="email-error" class="field-error"></p>
+                </div>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <div class="form-field">
+                    <label for="topic">Topic of Interest</label>
+                    <select id="topic" name="topic" required aria-describedby="topic-error">
+                        <option value="">Choose a topic</option>
+                        <option value="web">Web Development</option>
+                        <option value="security">Information Security</option>
+                        <option value="collaboration">Collaboration</option>
+                    </select>
+                    <p id="topic-error" class="field-error"></p>
+                </div>
 
-                <button type="submit">Send message</button>
+                <div class="form-field">
+                    <label for="comments">Comments</label>
+                    <p id="comments-hint"> At least 15 characters. Leading and trailing spaces do not count.</p>
+                    <textarea id="comments" name="comments" rows="5" required minlength="15" aria-describedby="comments-hint comments-counter comments-error"></textarea>
+                    <p id="comments-counter" class="character-counter too-short"> 0 characters – at least 15 required.</p>
+                    <p id="comments-error" class="field-error"></p>
+                </div>
+
+                <div class="form-field">
+                    <label for="website">Website (optional)</label>
+                    <input id="website" name="website" type="url" autocomplete="url" placeholder="https://example.com" aria-describedby="website-error">
+                    <p id="website-error" class="field-error"></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                </div>
             </form>
+
+            <p id="feedback-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </section>
     </main>
 

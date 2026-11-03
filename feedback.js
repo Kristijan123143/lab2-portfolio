@@ -53,3 +53,23 @@ function validateTopic(value)
 {
   return value === "" ? "Choose a topic of interest." : "";
 }
+
+function commentLenght(value)
+{
+    return [...value.trim()].length;
+}
+
+function validateComments(value) 
+{
+  return commentLength(value) < minimumComments ? "Enter a comment using at least 15 characters." : "";
+}
+
+function validateWebsite(value)
+{
+    if (value.trim() !== "" && !website.validity.valid) 
+    {
+        return "Enter a complete URL, for example https://example.com.";
+    }
+    
+    return "";
+}

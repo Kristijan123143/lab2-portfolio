@@ -154,6 +154,12 @@ fields.forEach((field) => {
 
 comments.addEventListener("input", updateCounter);
 
+form.addEventListener("reset", (event) => {
+    event.preventDefault();
+    resetForm();
+    fullName.focus();
+});
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     clearSuccessMessage();

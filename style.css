@@ -216,3 +216,122 @@ footer a{
         height: 280px;
     }
 }
+
+/* Lab 2: feedback form */
+#feedback-form,
+#feedback-form * {
+  box-sizing: border-box;
+}
+
+#feedback-form .form-field {
+  margin-bottom: 18px;
+}
+
+#feedback-form input,
+#feedback-form select,
+#feedback-form textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 2px solid #737373;
+  border-radius: 6px;
+  background-color: white;
+  color: #222;
+  font: inherit;
+  transition: border-color 0.15s ease;
+}
+
+#feedback-form textarea {
+  resize: vertical;
+}
+
+#feedback-form .is-invalid {
+  border-color: #b42318;
+}
+
+#feedback-form .is-valid {
+  border-color: #18703b;
+}
+
+#feedback-form :is(input, select, textarea, button):focus {
+  outline: 3px solid #6930a8;
+  outline-offset: 3px;
+}
+
+#feedback-form .field-error {
+  margin: 6px 0 0;
+  color: #b42318;
+}
+
+#feedback-form .field-error:empty {
+  display: none;
+}
+
+#comments-hint,
+#comments-counter {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+#comments-counter.too-short {
+  color: #b42318;
+}
+
+#comments-counter.long-enough {
+  color: #18703b;
+}
+
+#feedback-form .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#feedback-form button {
+  margin-top: 0;
+  background-color: #6930a8;
+}
+
+#feedback-form button:hover {
+  background-color: #512282;
+}
+
+#feedback-form button[type="reset"] {
+  border: 2px solid #6930a8;
+  background-color: white;
+  color: #6930a8;
+}
+
+#feedback-status {
+  min-height: 1.6em;
+  color: #18703b;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  #contact {
+    padding: 20px;
+  }
+
+  #feedback-form button {
+    flex: 1 1 100%;
+  }
+
+  #skills {
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #feedback-form input,
+  #feedback-form select,
+  #feedback-form textarea {
+    transition: none;
+  }
+}

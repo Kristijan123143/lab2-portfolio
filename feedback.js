@@ -130,10 +130,48 @@ function updateCounter()
     counter.classList.toggle("long-enough", enough);
 }
 
+function clearSuccessMessage()
+{
+    clearTimeout(successTimer);
+    successTimer = null;
+    statusMessage.textContent = "";
+}
+
+function resetForm()
+{
+    fields.forEach((field) => {
+        field.input.value = "";
+        clearFieldError(field);
+    });
+
+    updateCounter();
+    clearSuccessMessage();
+}
+
 fields.forEach((field) => {
     field.input.addEventListener("input", () => validateField(field));
 });
 
 comments.addEventListener("input", updateCounter);
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    clearSuccessMessage();
+
+    const results = fields.map(validateField);
+    const firstInvalid = results.indexOf(false);
+
+    if(firstInvalid !== -1)
+    {
+        fields[firstInvalid].input.focus();
+        return;
+    }
+
+    const submittedName = fullName.value.trim();
+    resetForm();
+    statusMessage.textContent = `Thank you for your feedback, ${submittedName}!`;
+    successTimer = setTimeout(clearSuccessMessage, 5000);
+});
+
 updateCounter(); // Initialize counter on page load
 

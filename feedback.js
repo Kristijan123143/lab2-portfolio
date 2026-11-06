@@ -131,14 +131,15 @@ function validateField(field)
 function updateCounter()
 {
     const count = commentLength(comments.value);
-    const enough = count >= minimumComments;
+    const enoughMin = count >= minimumComments;
+    const enoughMax = count <= maximumComments;
 
-    counter.textContent = enough
+    counter.textContent = enoughMin && enoughMax
     ? `${count} characters – the minimum of ${minimumComments} is met.`
     : `${count} characters – at least ${minimumComments} required.`;
 
-    counter.classList.toggle("too-short", !enough);
-    counter.classList.toggle("long-enough", enough);
+    counter.classList.toggle("too-short", !enoughMin);
+    counter.classList.toggle("long-enough", enoughMax);
 }
 
 // Prevent an older timer from removing a newer success message.
